@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
 
-import datetime
+
 import os
 import datetime
 from time import sleep
 from subprocess import call 
-
 
 
 call('fswebcam -r 1920x1080 --no-banner /home/khalob/Camera/images/%Y-%m-%d_%H:%M:%S.jpg', shell=True)
