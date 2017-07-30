@@ -23,7 +23,7 @@ def detectFire(imageFileName):
 	return fireDetected
 def uploadImage(imageFileName):
 	s3=boto3.client('s3')
-	img=open("images/"+imageFileName,"rb")
+	img=open("/images/"+imageFileName,"rb")
 	s3.upload_file(imageFileName,'tba-squad',imageFileName)
 
 detectFire("me.jpg")

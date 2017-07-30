@@ -4,6 +4,7 @@
 
 import os
 import datetime
+from imageDetection import uploadImage
 from time import sleep
 from subprocess import call 
 
@@ -14,3 +15,4 @@ call('git add -A', shell=True)
 call('git commit -m "PI: Taking and uploading photo"', shell=True)
 call('git push origin master', shell=True)
 
+uploadImage(DATE + '.jpg')
