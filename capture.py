@@ -7,7 +7,7 @@ import datetime
 from time import sleep
 from subprocess import call 
 
-DATE='Y-%m-%d_%H:%M:%S'
+DATE='%Y-%m-%d_%H:%M:%S'
 
 call('fswebcam -r 1920x1080 --no-banner /home/khalob/Camera/images/' + DATE + '.pg', shell=True)
 call('git add -A', shell=True)
