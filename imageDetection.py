@@ -16,14 +16,15 @@ def detectFire(imageFileName):
 		else:
 			detectedFeatures.append(response['Labels'][i]['Name'])
 	print(detectedFeatures)
+	fireDetected=False
 	for i in range(len(detectedFeatures)):
-		fireDetected=False
-		if(detectedFeatures[i]=="fire" or detectedFeatures[i]=="flame" or detectedFeatures[i]=="burn"):
+		detectedFeatures[i]=detectedFeatures[i].lower()
+		if(detectedFeatures[i]=='fire' or detectedFeatures[i]=="flame" or detectedFeatures[i]=="burn"):
 			fireDetected=True
 	return fireDetected
 def uploadImage(imageFileName):
 	s3=boto3.client('s3')
-	img=open("/images/"+imageFileName,"rb")
+	img=open("images/"+imageFileName,"rb")
 	s3.upload_file(imageFileName,'tba-squad',imageFileName)
 
-detectFire("me.jpg")
+print("Is there a fire?",detectFire("fire.jpg"))
